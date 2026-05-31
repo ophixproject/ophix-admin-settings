@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.contrib import admin
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -53,3 +54,10 @@ class ServerSettingsAdmin(admin.ModelAdmin):
         return HttpResponseRedirect(
             reverse("admin:ophix_admin_settings_serversettings_change", args=[obj.pk])
         )
+
+
+if not getattr(settings, "SHOW_SETTINGS_MODEL", False):
+    try:
+        admin.site.unregister(ServerSettings)
+    except admin.sites.NotRegistered:
+        pass

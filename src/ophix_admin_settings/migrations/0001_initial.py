@@ -1,0 +1,77 @@
+from django.db import migrations, models
+
+
+class Migration(migrations.Migration):
+
+    initial = True
+
+    dependencies = []
+
+    operations = [
+        migrations.CreateModel(
+            name="ServerSettings",
+            fields=[
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                (
+                    "title",
+                    models.CharField(
+                        blank=True,
+                        default="",
+                        help_text="Displayed in the browser tab and admin header (e.g. TaskServer, CredServer).",
+                        max_length=50,
+                        verbose_name="title",
+                    ),
+                ),
+                (
+                    "title_visible",
+                    models.BooleanField(default=True, verbose_name="title visible"),
+                ),
+                (
+                    "env_name",
+                    models.CharField(
+                        blank=True,
+                        help_text="Short label shown in the header and favicon (e.g. Production, Staging, Dev).",
+                        max_length=50,
+                        verbose_name="environment name",
+                    ),
+                ),
+                (
+                    "env_visible_in_header",
+                    models.BooleanField(default=True, verbose_name="visible in header"),
+                ),
+                (
+                    "env_visible_in_favicon",
+                    models.BooleanField(default=True, verbose_name="visible in favicon"),
+                ),
+                (
+                    "language_chooser_active",
+                    models.BooleanField(default=True, verbose_name="language chooser active"),
+                ),
+                (
+                    "language_chooser_control",
+                    models.CharField(
+                        choices=[
+                            ("default-select", "Default Select"),
+                            ("minimal-select", "Minimal Select"),
+                        ],
+                        default="default-select",
+                        max_length=20,
+                        verbose_name="language chooser control",
+                    ),
+                ),
+                (
+                    "language_chooser_display",
+                    models.CharField(
+                        choices=[("code", "code"), ("name", "name")],
+                        default="code",
+                        max_length=10,
+                        verbose_name="language chooser display",
+                    ),
+                ),
+            ],
+            options={
+                "verbose_name": "Server Settings",
+                "verbose_name_plural": "Server Settings",
+            },
+        ),
+    ]

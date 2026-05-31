@@ -43,5 +43,7 @@ where = ["src"]
 
 [tool.setuptools.package-data]
 "ophix_admin_settings" = [
+    "OPHIX_RELEASE_NOTES.md",
     "deploy_templates/**/*",
+    "docs/**/*",
 ]

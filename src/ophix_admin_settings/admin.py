@@ -9,6 +9,11 @@ from .models import ServerSettings
 
 @admin.register(ServerSettings)
 class ServerSettingsAdmin(admin.ModelAdmin):
+
+    def response_change(self, request, obj):
+        if "_save" in request.POST:
+            return HttpResponseRedirect(reverse("admin:index"))
+        return super().response_change(request, obj)
     fieldsets = (
         (
             _("Server Identity"),

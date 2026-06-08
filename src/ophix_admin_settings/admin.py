@@ -31,7 +31,8 @@ class ServerSettingsAdmin(admin.ModelAdmin):
             {
                 "classes": ("wide",),
                 "fields": (
-                    ("env_name", "env_visible_in_header"),
+                    "env_name",
+                    "env_visible_in_header",
                     ("env_color", "env_color_dark_use", "env_color_dark"),
                     ("env_text_color", "env_text_color_dark_use", "env_text_color_dark"),
                 ),
@@ -53,9 +54,6 @@ class ServerSettingsAdmin(admin.ModelAdmin):
             },
         ),
     )
-
-    class Media:
-        css = {"all": ("ophix_admin_settings/css/admin.css",)}
 
     save_on_top = True
 

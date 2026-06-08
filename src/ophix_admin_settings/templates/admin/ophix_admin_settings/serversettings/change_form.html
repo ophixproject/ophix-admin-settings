@@ -15,20 +15,19 @@
   <h2>{% trans "Environment" %}</h2>
   {% if fieldset.description %}<div class="description">{{ fieldset.description }}</div>{% endif %}
 
-  <div class="form-row field-env_name">
+  <div class="form-row field-env_name field-env_visible_in_header">
     {{ form.env_name.errors }}
-    <div>
-      {{ form.env_name.label_tag }}
-      {{ form.env_name }}
-      {% if form.env_name.help_text %}<div class="help">{{ form.env_name.help_text }}</div>{% endif %}
-    </div>
-  </div>
-
-  <div class="form-row field-env_visible_in_header">
     {{ form.env_visible_in_header.errors }}
     <div>
-      {{ form.env_visible_in_header }}
-      <label for="{{ form.env_visible_in_header.id_for_label }}">{% trans "Visible in header" %}</label>
+      {{ form.env_name.label_tag }}
+      <div style="display:flex; align-items:center; gap:16px;">
+        {{ form.env_name }}
+        <div class="flex-container checkbox-row">
+          {{ form.env_visible_in_header }}
+          <label for="{{ form.env_visible_in_header.id_for_label }}" class="vCheckboxLabel">{% trans "Visible in header" %}</label>
+        </div>
+      </div>
+      {% if form.env_name.help_text %}<div class="help">{{ form.env_name.help_text }}</div>{% endif %}
     </div>
   </div>
 

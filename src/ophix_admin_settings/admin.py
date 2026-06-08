@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.contrib import admin
+from django.contrib import admin, messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
@@ -12,10 +12,10 @@ class ServerSettingsAdmin(admin.ModelAdmin):
 
     def response_change(self, request, obj):
         if "_save" in request.POST:
-            self.message_user(request, _("Server Settings saved successfully."))
+            self.message_user(request, _("Server Settings saved successfully."), messages.SUCCESS)
             return HttpResponseRedirect(reverse("admin:index"))
         if "_continue" in request.POST:
-            self.message_user(request, _("Server Settings saved successfully."))
+            self.message_user(request, _("Server Settings saved successfully."), messages.SUCCESS)
             return HttpResponseRedirect(request.path)
         return super().response_change(request, obj)
     fieldsets = (

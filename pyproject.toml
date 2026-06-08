@@ -26,6 +26,7 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
 ]
 dependencies = [
+    "django-colorfield",
     "ophix-server-base>=2026.05.30.05",
 ]
 

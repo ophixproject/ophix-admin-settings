@@ -26,10 +26,16 @@ class ServerSettingsAdmin(admin.ModelAdmin):
             _("Environment"),
             {
                 "classes": ("wide",),
-                "fields": ("env_name", "env_visible_in_header", "env_visible_in_favicon"),
+                "fields": (
+                    "env_name",
+                    "env_visible_in_header",
+                    ("env_color", "env_color_dark_use", "env_color_dark"),
+                    ("env_text_color", "env_text_color_dark_use", "env_text_color_dark"),
+                ),
                 "description": _(
                     "Short label displayed in the header and favicon to identify the "
-                    "deployment environment (e.g. Production, Staging, Dev)."
+                    "deployment environment (e.g. Production, Staging, Dev). "
+                    "Badge color and text color are used when the environment badge is displayed."
                 ),
             },
         ),

@@ -1,3 +1,4 @@
+from colorfield.fields import ColorField
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
@@ -28,9 +29,39 @@ class ServerSettings(models.Model):
         default=False,
         verbose_name=_("visible in header"),
     )
-    env_visible_in_favicon = models.BooleanField(
+    env_color = ColorField(
+        blank=True,
+        default="#ddab52",
+        max_length=10,
+        verbose_name=_("badge color"),
+        help_text=_("Background colour of the environment badge."),
+    )
+    env_color_dark_use = models.BooleanField(
         default=False,
-        verbose_name=_("visible in favicon"),
+        verbose_name=_("dark?"),
+    )
+    env_color_dark = ColorField(
+        blank=True,
+        default="",
+        max_length=10,
+        verbose_name=_("dark"),
+    )
+    env_text_color = ColorField(
+        blank=True,
+        default="#1a1a1a",
+        max_length=10,
+        verbose_name=_("badge text color"),
+        help_text=_("Text colour of the environment badge."),
+    )
+    env_text_color_dark_use = models.BooleanField(
+        default=False,
+        verbose_name=_("dark?"),
+    )
+    env_text_color_dark = ColorField(
+        blank=True,
+        default="",
+        max_length=10,
+        verbose_name=_("dark"),
     )
 
     language_chooser_control_choices = (

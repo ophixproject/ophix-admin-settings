@@ -12,7 +12,11 @@ class ServerSettingsAdmin(admin.ModelAdmin):
 
     def response_change(self, request, obj):
         if "_save" in request.POST:
+            self.message_user(request, _("Server Settings saved successfully."))
             return HttpResponseRedirect(reverse("admin:index"))
+        if "_continue" in request.POST:
+            self.message_user(request, _("Server Settings saved successfully."))
+            return HttpResponseRedirect(request.path)
         return super().response_change(request, obj)
     fieldsets = (
         (

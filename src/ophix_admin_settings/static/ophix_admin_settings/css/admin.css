@@ -1,4 +1,0 @@
-/* Constrain env_name input width so env_visible_in_header checkbox fits on the same row */
-.field-env_name .vTextField {
-    width: 20em;
-}

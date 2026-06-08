@@ -23,7 +23,6 @@ class ServerSettings(models.Model):
         default="",
         max_length=50,
         verbose_name=_("environment name"),
-        help_text=_("Short label shown in the header and favicon (e.g. Production, Staging, Dev)."),
     )
     env_visible_in_header = models.BooleanField(
         default=False,

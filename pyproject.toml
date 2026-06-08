@@ -47,4 +47,5 @@ where = ["src"]
     "OPHIX_RELEASE_NOTES.md",
     "deploy_templates/**/*",
     "docs/**/*",
+    "templates/**/*",
 ]

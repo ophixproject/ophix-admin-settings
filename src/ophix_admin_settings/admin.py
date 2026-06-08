@@ -33,9 +33,8 @@ class ServerSettingsAdmin(admin.ModelAdmin):
                     ("env_text_color", "env_text_color_dark_use", "env_text_color_dark"),
                 ),
                 "description": _(
-                    "Short label displayed in the header and favicon to identify the "
-                    "deployment environment (e.g. Production, Staging, Dev). "
-                    "Badge color and text color are used when the environment badge is displayed."
+                    "Small badge displayed in the header to identify the deployment environment "
+                    "(e.g. PROD, DEV, TEST)."
                 ),
             },
         ),

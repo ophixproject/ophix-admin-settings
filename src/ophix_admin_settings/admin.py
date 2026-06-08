@@ -54,6 +54,9 @@ class ServerSettingsAdmin(admin.ModelAdmin):
         ),
     )
 
+    class Media:
+        css = {"all": ("ophix_admin_settings/css/admin.css",)}
+
     save_on_top = True
 
     def has_add_permission(self, request):

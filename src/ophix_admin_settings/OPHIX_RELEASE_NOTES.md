@@ -1,6 +1,6 @@
 # Ophix Admin Settings Release Notes
 
-## Unreleased
+## 2026.06.09.02
 
 - Added `export_settings` management command — exports the `ServerSettings` singleton
   to a JSON file for backup or server migration.

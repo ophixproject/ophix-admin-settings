@@ -1,5 +1,14 @@
 # Ophix Admin Settings Release Notes
 
+## Unreleased
+
+- Added `export_settings` management command — exports the `ServerSettings` singleton
+  to a JSON file for backup or server migration.
+- Added `import_settings` management command — imports from an `export_settings` file;
+  applies only fields present in the file, reports per-field changes, supports `--dry-run`.
+- Updated server-settings docs: removed stale "Visible in favicon" row, updated env badge
+  colour description, added Backup and Migration section.
+
 ## 2026.05.31.01
 
 - Initial release. Provides the `ServerSettings` singleton model for instance-specific

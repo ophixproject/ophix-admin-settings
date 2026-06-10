@@ -1,6 +1,6 @@
 # Ophix Admin Settings Release Notes
 
-## Unreleased
+## 2026.06.10.01
 
 - Added `message_autohide_enabled` and `message_autohide_delay` fields to `ServerSettings`.
   When enabled, success and info message banners are automatically dismissed after the

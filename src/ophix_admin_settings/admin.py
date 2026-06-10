@@ -43,6 +43,17 @@ class ServerSettingsAdmin(admin.ModelAdmin):
             },
         ),
         (
+            _("Notifications"),
+            {
+                "classes": ("wide",),
+                "fields": ("message_autohide_enabled", "message_autohide_delay"),
+                "description": _(
+                    "Configure automatic dismissal of message banners. "
+                    "Only success and info banners are auto-hidden; errors and warnings are never automatically dismissed."
+                ),
+            },
+        ),
+        (
             _("Language Chooser"),
             {
                 "classes": ("wide",),

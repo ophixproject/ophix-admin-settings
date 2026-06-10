@@ -63,6 +63,17 @@ class ServerSettings(models.Model):
         verbose_name=_("dark"),
     )
 
+    message_autohide_enabled = models.BooleanField(
+        default=False,
+        verbose_name=_("auto-hide enabled"),
+        help_text=_("Automatically hide success and info banners after the timeout. Errors and warnings are never auto-hidden."),
+    )
+    message_autohide_delay = models.PositiveSmallIntegerField(
+        default=4000,
+        verbose_name=_("auto-hide delay (ms)"),
+        help_text=_("Milliseconds before success and info banners are hidden."),
+    )
+
     language_chooser_control_choices = (
         ("default-select", _("Default Select")),
         ("minimal-select", _("Minimal Select")),

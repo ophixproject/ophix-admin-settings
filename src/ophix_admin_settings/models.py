@@ -1,7 +1,5 @@
 from colorfield.fields import ColorField
 from django.db import models
-from django.db.models.signals import post_save
-from django.dispatch import receiver
 from django.utils.translation import gettext_lazy as _
 
 
@@ -117,9 +115,3 @@ class ServerSettings(models.Model):
 
     def __str__(self):
         return self.title or "Server Settings"
-
-
-@receiver(post_save, sender=ServerSettings)
-def server_settings_post_save(sender, instance, **kwargs):
-    from .context_processors import del_cached_settings
-    del_cached_settings()

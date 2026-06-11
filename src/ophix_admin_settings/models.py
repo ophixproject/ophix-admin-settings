@@ -97,6 +97,38 @@ class ServerSettings(models.Model):
         verbose_name=_("language chooser display"),
     )
 
+    def clean(self):
+        from django.core.exceptions import ValidationError
+
+        from .validators import (
+            SETTINGS_COLOR_FIELDS,
+            validate_css_color,
+            validate_env_name,
+            validate_server_title,
+        )
+
+        errors = {}
+
+        def _check(field_name, validator):
+            try:
+                validator(getattr(self, field_name) or "")
+            except ValidationError as exc:
+                errors[field_name] = exc
+
+        for field_name in SETTINGS_COLOR_FIELDS:
+            value = (getattr(self, field_name) or "").strip()
+            setattr(self, field_name, value)
+            try:
+                validate_css_color(value)
+            except ValidationError as exc:
+                errors[field_name] = exc
+
+        _check("title", validate_server_title)
+        _check("env_name", validate_env_name)
+
+        if errors:
+            raise ValidationError(errors)
+
     def save(self, *args, **kwargs):
         self.pk = 1
         super().save(*args, **kwargs)

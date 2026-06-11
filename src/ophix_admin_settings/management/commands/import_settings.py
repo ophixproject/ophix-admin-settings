@@ -137,6 +137,21 @@ class Command(BaseCommand):
                 obj.full_clean()
                 obj.save()
             except Exception as exc:
+                from django.core.exceptions import ValidationError
+                if isinstance(exc, ValidationError) and hasattr(exc, "message_dict"):
+                    self.stderr.write(self.style.ERROR(
+                        "Settings file contains invalid field values "
+                        "and was NOT imported.\n"
+                    ))
+                    for field_name, messages in exc.message_dict.items():
+                        field_val = str(getattr(obj, field_name, "") or "")
+                        display = field_val if len(field_val) <= 80 else field_val[:77] + "..."
+                        self.stderr.write(f"  {field_name}")
+                        self.stderr.write(f"    Value:   {display!r}")
+                        for msg in messages:
+                            self.stderr.write(f"    Problem: {msg}\n")
+                    self.stderr.write("Fix the values in the settings file and try again.")
+                    raise CommandError("Import failed — see errors above.")
                 raise CommandError(f"Failed to save ServerSettings: {exc}")
             self.stdout.write(self.style.SUCCESS(
                 f"{len(changed)} field(s) updated."

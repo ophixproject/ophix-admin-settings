@@ -13,8 +13,8 @@ class Migration(migrations.Migration):
             name="message_autohide_enabled",
             field=models.BooleanField(
                 default=False,
-                help_text="Automatically hide success and info banners after the timeout. Errors and warnings are never auto-hidden.",
-                verbose_name="auto-hide enabled",
+                help_text="Automatically dismiss success and info banners after the timeout. Errors and warnings remain until page reload or user dismissal.",
+                verbose_name="auto-dismiss enabled",
             ),
         ),
         migrations.AddField(
@@ -22,8 +22,8 @@ class Migration(migrations.Migration):
             name="message_autohide_delay",
             field=models.PositiveSmallIntegerField(
                 default=4000,
-                help_text="Milliseconds before success and info banners are hidden.",
-                verbose_name="auto-hide delay (ms)",
+                help_text="Milliseconds before success and info banners are dismissed.",
+                verbose_name="auto-dismiss delay (ms)",
             ),
         ),
     ]

@@ -19,14 +19,14 @@
   <div class="form-row field-title">
     {{ form.title.label_tag }}
     {{ form.title }}
-    {% if form.title.help_text %}<div class="help">{{ form.title.help_text }}</div>{% endif %}
+    {% if form.title.help_text %}<div class="col-help">{{ form.title.help_text }}</div>{% endif %}
   </div>
   <div class="form-row field-title_visible">
     <div class="flex-container checkbox-row">
       {{ form.title_visible }}
       <label for="{{ form.title_visible.id_for_label }}" class="vCheckboxLabel">{{ form.title_visible.label }}</label>
     </div>
-    {% if form.title_visible.help_text %}<div class="help">{{ form.title_visible.help_text }}</div>{% endif %}
+    {% if form.title_visible.help_text %}<div class="col-help">{{ form.title_visible.help_text }}</div>{% endif %}
   </div>
 </fieldset>
 
@@ -46,7 +46,7 @@
           <label for="{{ form.env_visible_in_header.id_for_label }}" class="vCheckboxLabel">{% trans "Visible in header" %}</label>
         </div>
       </div>
-      {% if form.env_name.help_text %}<div class="help">{{ form.env_name.help_text }}</div>{% endif %}
+      {% if form.env_name.help_text %}<div class="col-help">{{ form.env_name.help_text }}</div>{% endif %}
     </div>
   </div>
 
@@ -84,13 +84,13 @@
       {{ form.message_autohide_enabled }}
       <label for="{{ form.message_autohide_enabled.id_for_label }}" class="vCheckboxLabel">{{ form.message_autohide_enabled.label }}</label>
     </div>
-    {% if form.message_autohide_enabled.help_text %}<div class="help">{{ form.message_autohide_enabled.help_text }}</div>{% endif %}
+    {% if form.message_autohide_enabled.help_text %}<div class="col-help">{{ form.message_autohide_enabled.help_text }}</div>{% endif %}
   </div>
   {% if form.message_autohide_delay.errors %}<div class="field-error-row">{{ form.message_autohide_delay.errors }}</div>{% endif %}
   <div class="form-row field-message_autohide_delay">
     {{ form.message_autohide_delay.label_tag }}
     {{ form.message_autohide_delay }}
-    {% if form.message_autohide_delay.help_text %}<div class="help">{{ form.message_autohide_delay.help_text }}</div>{% endif %}
+    {% if form.message_autohide_delay.help_text %}<div class="col-help">{{ form.message_autohide_delay.help_text }}</div>{% endif %}
   </div>
 </fieldset>
 

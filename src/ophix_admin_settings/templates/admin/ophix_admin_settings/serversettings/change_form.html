@@ -11,14 +11,32 @@
 {% with form=adminform.form %}
 {% for fieldset in adminform %}
 
-{% if fieldset.name == "Environment" %}
+{% if fieldset.name == "Server Identity" %}
+<fieldset class="module wide">
+  <h2>{{ fieldset.name }}</h2>
+  {% if fieldset.description %}<div class="description">{{ fieldset.description }}</div>{% endif %}
+  {% if form.title.errors %}<div class="field-error-row">{{ form.title.errors }}</div>{% endif %}
+  <div class="form-row field-title">
+    {{ form.title.label_tag }}
+    {{ form.title }}
+    {% if form.title.help_text %}<div class="help">{{ form.title.help_text }}</div>{% endif %}
+  </div>
+  <div class="form-row field-title_visible">
+    <div class="flex-container checkbox-row">
+      {{ form.title_visible }}
+      <label for="{{ form.title_visible.id_for_label }}" class="vCheckboxLabel">{{ form.title_visible.label }}</label>
+    </div>
+    {% if form.title_visible.help_text %}<div class="help">{{ form.title_visible.help_text }}</div>{% endif %}
+  </div>
+</fieldset>
+
+{% elif fieldset.name == "Environment" %}
 <fieldset class="module aligned wide">
-  <h2>{% trans "Environment" %}</h2>
+  <h2>{{ fieldset.name }}</h2>
   {% if fieldset.description %}<div class="description">{{ fieldset.description }}</div>{% endif %}
 
+  {% if form.env_name.errors %}<div class="field-error-row">{{ form.env_name.errors }}</div>{% endif %}
   <div class="form-row field-env_name field-env_visible_in_header">
-    {{ form.env_name.errors }}
-    {{ form.env_visible_in_header.errors }}
     <div>
       {{ form.env_name.label_tag }}
       <div style="display:flex; align-items:center; gap:16px;">
@@ -54,6 +72,25 @@
       <div class="col-dark" id="dark-env_text_color">{{ form.env_text_color_dark }}</div>
     </div>
     {% if form.env_text_color.help_text %}<div class="help-row"><div class="col-help">{{ form.env_text_color.help_text }}</div></div>{% endif %}
+  </div>
+</fieldset>
+
+{% elif fieldset.name == "Notifications" %}
+<fieldset class="module wide">
+  <h2>{{ fieldset.name }}</h2>
+  {% if fieldset.description %}<div class="description">{{ fieldset.description }}</div>{% endif %}
+  <div class="form-row field-message_autohide_enabled">
+    <div class="flex-container checkbox-row">
+      {{ form.message_autohide_enabled }}
+      <label for="{{ form.message_autohide_enabled.id_for_label }}" class="vCheckboxLabel">{{ form.message_autohide_enabled.label }}</label>
+    </div>
+    {% if form.message_autohide_enabled.help_text %}<div class="help">{{ form.message_autohide_enabled.help_text }}</div>{% endif %}
+  </div>
+  {% if form.message_autohide_delay.errors %}<div class="field-error-row">{{ form.message_autohide_delay.errors }}</div>{% endif %}
+  <div class="form-row field-message_autohide_delay">
+    {{ form.message_autohide_delay.label_tag }}
+    {{ form.message_autohide_delay }}
+    {% if form.message_autohide_delay.help_text %}<div class="help">{{ form.message_autohide_delay.help_text }}</div>{% endif %}
   </div>
 </fieldset>
 

@@ -102,7 +102,6 @@ class ServerSettings(models.Model):
 
         from .validators import (
             SETTINGS_COLOR_FIELDS,
-            validate_css_color,
             validate_env_name,
             validate_server_title,
         )
@@ -118,10 +117,6 @@ class ServerSettings(models.Model):
         for field_name in SETTINGS_COLOR_FIELDS:
             value = (getattr(self, field_name) or "").strip()
             setattr(self, field_name, value)
-            try:
-                validate_css_color(value)
-            except ValidationError as exc:
-                errors[field_name] = exc
 
         _check("title", validate_server_title)
         _check("env_name", validate_env_name)

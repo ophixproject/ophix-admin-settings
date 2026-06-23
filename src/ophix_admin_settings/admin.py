@@ -68,6 +68,19 @@ class ServerSettingsAdmin(admin.ModelAdmin):
 
     save_on_top = True
 
+    def change_view(self, request, object_id, form_url="", extra_context=None):
+        extra_context = extra_context or {}
+        from django.conf import settings as django_settings
+        if getattr(django_settings, "SHOW_THEME_MODEL", True):
+            try:
+                from admin_interface.models import Theme
+                extra_context["active_theme"] = Theme.objects.get_active()
+            except Exception:
+                extra_context["active_theme"] = None
+        else:
+            extra_context["active_theme"] = None
+        return super().change_view(request, object_id, form_url, extra_context)
+
     def has_add_permission(self, request):
         return False
 

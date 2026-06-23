@@ -28,6 +28,7 @@
     </div>
     {% if form.title_visible.help_text %}<div class="col-help">{{ form.title_visible.help_text }}</div>{% endif %}
   </div>
+  {% if active_theme %}{% url 'admin:admin_interface_theme_change' active_theme.pk as theme_change_url %}<div class="admin-settings-cross-link">{% trans "Theme:" %} <a href="{{ theme_change_url }}#section-header-logo">{% trans "Header &amp; Logo" %} →</a></div>{% endif %}
 </fieldset>
 
 {% elif fieldset.name == "Environment" %}
@@ -92,6 +93,7 @@
     {{ form.message_autohide_delay }}
     {% if form.message_autohide_delay.help_text %}<div class="col-help">{{ form.message_autohide_delay.help_text }}</div>{% endif %}
   </div>
+  {% if active_theme %}{% url 'admin:admin_interface_theme_change' active_theme.pk as theme_change_url %}<div class="admin-settings-cross-link">{% trans "Theme:" %} <a href="{{ theme_change_url }}#section-notification-colors">{% trans "Notification Colors" %} →</a></div>{% endif %}
 </fieldset>
 
 {% else %}

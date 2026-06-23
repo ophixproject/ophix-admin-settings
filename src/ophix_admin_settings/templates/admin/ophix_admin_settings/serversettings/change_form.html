@@ -12,7 +12,7 @@
 {% for fieldset in adminform %}
 
 {% if fieldset.name == "Server Identity" %}
-<fieldset class="module wide">
+<fieldset class="module wide" id="fieldset-server-identity">
   <h2>{{ fieldset.name }}</h2>
   {% if fieldset.description %}<div class="description">{{ fieldset.description }}</div>{% endif %}
   {% if form.title.errors %}<div class="field-error-row">{{ form.title.errors }}</div>{% endif %}
@@ -77,7 +77,7 @@
 </fieldset>
 
 {% elif fieldset.name == "Notifications" %}
-<fieldset class="module wide">
+<fieldset class="module wide" id="fieldset-notifications">
   <h2>{{ fieldset.name }}</h2>
   {% if fieldset.description %}<div class="description">{{ fieldset.description }}</div>{% endif %}
   <div class="form-row field-message_autohide_enabled">

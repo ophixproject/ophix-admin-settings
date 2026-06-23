@@ -48,8 +48,8 @@ class ServerSettingsAdmin(admin.ModelAdmin):
                 "classes": ("wide",),
                 "fields": ("message_autohide_enabled", "message_autohide_delay"),
                 "description": _(
-                    "Configure automatic dismissal of message banners. "
-                    "Only success and info banners are auto-dismissed; errors and warnings remain until page reload or user dismissal."
+                    "Configure automatic dismissal of system notifications. "
+                    "Only success and info notifications are auto-dismissed; errors and warnings remain until page reload or user dismissal."
                 ),
             },
         ),

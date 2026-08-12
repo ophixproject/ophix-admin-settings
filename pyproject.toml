@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "ophix-admin-settings"
 version = "2026.06.23.04"
-description = "Instance settings for Ophix Project Servers â€” server identity, environment, and language"
+description = "Instance settings for Ophix Project Servers - server identity, environment, and language"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"

@@ -1,8 +1,10 @@
 # ophix-admin-settings
 
-Instance settings for [Ophix Project](https://ophix.io) servers — server identity, environment label, and language chooser configuration.
+**Know which server you're looking at, every time** — instance identity and environment labelling for every [Ophix](https://ophix.io) server.
 
-This package is automatically installed as a dependency of `ophix-admin-interface`. It is not a domain plugin; it applies to every Ophix server regardless of which domain is installed.
+Running the same admin UI across a dozen servers makes it easy to lose track of which one is actually in front of you — and that's exactly the moment someone edits production thinking it's staging. `ophix-admin-settings` gives every server its own title and a visible environment badge (Production, Staging, Dev, or whatever you call it), right in the header and favicon, so there's never any doubt.
+
+This package is automatically included in every Ophix server, no need to separately install it.
 
 ---
 

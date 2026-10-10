@@ -23,19 +23,21 @@ from django.core.management.base import BaseCommand, CommandError
 
 
 _FIELD_TYPES = {
-    "title":                    str,
-    "title_visible":            bool,
-    "env_name":                 str,
-    "env_visible_in_header":    bool,
-    "env_color":                str,
-    "env_color_dark_use":       bool,
-    "env_color_dark":           str,
-    "env_text_color":           str,
-    "env_text_color_dark_use":  bool,
-    "env_text_color_dark":      str,
-    "language_chooser_active":  bool,
-    "language_chooser_control": str,
-    "language_chooser_display": str,
+    "title":                     str,
+    "title_visible":             bool,
+    "env_name":                  str,
+    "env_visible_in_header":     bool,
+    "env_color":                 str,
+    "env_color_dark_use":        bool,
+    "env_color_dark":            str,
+    "env_text_color":            str,
+    "env_text_color_dark_use":   bool,
+    "env_text_color_dark":       str,
+    "message_autohide_enabled":  bool,
+    "message_autohide_delay":    int,
+    "language_chooser_active":   bool,
+    "language_chooser_control":  str,
+    "language_chooser_display":  str,
 }
 
 _VALID_CHOICES = {

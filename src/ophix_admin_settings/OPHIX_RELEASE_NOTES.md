@@ -1,5 +1,20 @@
 # Ophix Admin Settings Release Notes
 
+## 2026.10.10.01
+
+- `export_settings`/`import_settings` were missing `message_autohide_enabled` and
+  `message_autohide_delay` — both fields were added to `ServerSettings` two days
+  after these commands were first written, and neither command's field list was
+  ever updated to match. A backup/export taken since then silently dropped both
+  values, and `import_settings` had no way to restore them. Fixed.
+- `export_settings` gained a `--stable` flag: omits the `meta` block and sorts keys,
+  so re-exporting unchanged settings produces byte-identical output.
+- `ophix_admin_settings` gains `get_revisions_targets()`, declaring a `settings`
+  target (plain, unencrypted — `ServerSettings` holds no sensitive data) for
+  `ophix-revisions` (if installed) to discover at runtime, with a precise
+  `"models"` match on `ServerSettings` itself. No separate registration needed
+  anywhere else. Requires `ophix-revisions>=2026.10.09.03` to actually take effect.
+
 ## 2026.10.04.01
 
 - Reworked `README.md`'s opening with a hook-first pitch (instance identity and environment
